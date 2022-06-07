@@ -1,0 +1,4 @@
+dacite
+pb_tool
+pyuic5-tool
+pyqt5ac
