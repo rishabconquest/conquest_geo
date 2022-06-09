@@ -200,9 +200,9 @@ class ConquestGeo:
 
     def run(self):
         """Run method that performs all the real work"""
-        try:
+        try:            
             ctrl = AssetCreationController()
-            ctrl.new_asset_creation()
+            ctrl.on_selected()
         except Exception as e:
             print(f'Unhandled exception {e}')
             print(traceback.format_exc())
