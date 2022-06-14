@@ -1,68 +1,56 @@
-## Conquest QGIS plugin
-
-This is the Conquest QGIS plugin, created as a prototype for our initial Public API <-> GIS integrations.
-
-It is written in Python3 and uses Qt (PyQt) to build xml forms.
-
-The product is distributed through a .zip file to customers who want to install it on their QGIS app:
-
-    `Plugins > Manage and Install Plugins ... > Install from ZIP`
-
-## What it provides
+# About The Product
 
 A task to add a selected Geometry to Conquest as a new asset. 
 
-The task is accessible using the Conquest tick icon in the toolbar or under the `Plugins > Conquest` menu
+The task is accessible using the Conquest tick icon in the toolbar or under the `Plugins > Conquest` menu (once the plugin is installed).
 
-## Bundling the plugin on Windows
+# Conquest QGIS Plugin Installation
 
-You will need python and make installed on your machine. Use the scoop package manager:
+The following steps can be used to install the Conquest Plugin on QGIS:- 
 
-```
-scoop install make
-scoop install python
-```
+1) Open the QGIS and Click on Plugin from Menu toolbar.
+2) Click on manage and Install Plugin....
+3) Select install From ZIP.
+4) Select '...' and select the provided .zip file and click on install plugin (as can be seen in the below figure).
 
-Using `pip` the python package manager tool, install the requirements for this project by running:
+![Installation Process](/Images/1st.PNG)
 
-```
-pip install -r requirements.txt
-```
+You will see the Conquest Icon on the toolbar menu as shown in the below figure.
 
-At this point you can use the build tool to create the .zip file that is installed in the QGIS app.
+![Installation Process](/Images/2.PNG)
 
-```
-pb_tool zip
-```
+## Note
 
-The zip file is available at: `./zip_build/conquest_geo.zip`
+In case if you do not see the Conquest Icon on QGIS. Make sure it is enabled from the Plugin Menu.
 
-## Bundling the plugin on a posix system
+![Installation Process](/Images/3.PNG)
 
-`make clean; find . -exec touch {} \; ; make compile ; find . -exec touch {} \; ; make zip;`
+# Adding an Asset
 
-## A little about the development process
+1) Click on the Conquest Icon and it would pop up the "Configure Connection" Window and fill in the details.
 
-When QGIS installed (using 3.24 at the time of dev) plugins are installed under the folder:
+![Installation Process](/Images/5.PNG)
 
-`~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\conquest_geo`
+To obtain the Api Token folow the following steps:
 
-You can modify code directly under this directory for a quicker feedback loop.
+1) Select Administration and then Device Conections.
+2) Click on the "+" coonection and then fill in the details and the token will be copied automatically.
 
-For UI development, there is a QT designer.exe for the .ui files which is available from the `qt5_applications` package.
+![Installation Process](/Images/6.PNG)
 
-You can install this package using a "Virtual Python ENV" and look inside the `.\venv\Lib\site-packages\qt5_applications\Qt\bin` folder
+To obtain the Public Api URL folow the following steps:
 
-## Obtaining the Conqeust Public API client library
+1) Select Administration and then Settings.
+2) Under the Connection server is the "Public Api URL".
 
-> Currently the current version from [github.com/ConquestSolutions/python-conquest](https://github.com/ConquestSolutions/python-conquest) 
-> is copied under the `./vendor` folder.
+Now, select the type of layer from XYZ Tiles from the Browser Window on the left from QGIS.
 
-There is also a package that has been pushed to PyPI that can be used here [conquest](https://pypi.org/project/conquest/) installable using
+![Installation Process](/Images/4.PNG)
 
-`pip install conquest`
+Draw the asset on QGIS and select the geometry.
 
-## More on QGIS plugin development
+![Installation Process](/Images/8.PNG)
 
-See [QGIS documentation](https://docs.qgis.org/3.22/en/docs/pyqgis_developer_cookbook/index.html)
+Now click on Select the Parent Asset and Select the Asset Type and fill in the Asset name.
 
+Finally, the Asset would created and it would pop up the Conquest 4 Application and you will be able to see the asset.
